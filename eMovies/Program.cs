@@ -1,4 +1,5 @@
 using eMovies.Data;
+using eTickets.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,5 +30,8 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+//DataBase Seed or Initialization
+ApplicationDbInitializer.Seed(app);
 
 app.Run();
