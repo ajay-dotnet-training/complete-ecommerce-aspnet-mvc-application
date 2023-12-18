@@ -36,7 +36,7 @@
                                 {
                                     <span class="badge bg-success text-white">AVAILABLE</span>
                                 }
-                                else if (DateTime.Now > item.EndDate)
+                                else if (DateTime.Now >= item.EndDate)
                                 {
                                     <span class="badge bg-danger text-white">EXPIRED</span>
                                 }

@@ -38,6 +38,6 @@ namespace eMovies.Data
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
 
         // Area Related Table
-        public DbSet<WebSeries> WebSeries { get; set; }
+        //public DbSet<WebSeries> WebSeries { get; set; }
     }
 }

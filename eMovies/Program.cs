@@ -1,4 +1,4 @@
-using eMovies.Areas.WebSeriesArea.Data.Services;
+//using eMovies.Areas.WebSeriesArea.Data.Services;
 using eMovies.Data;
 using eMovies.Data.Cart;
 using eMovies.Data.Services;
@@ -23,7 +23,7 @@ builder.Services.AddScoped<IProducersService, ProducersService>();
 builder.Services.AddScoped<ICinemasService, CinemasService>();
 builder.Services.AddScoped<IMoviesService, MoviesService>();
 builder.Services.AddScoped<IOrdersService, OrdersService>();
-builder.Services.AddScoped<IWebSeriesService, WebSeriesService>();
+//builder.Services.AddScoped<IWebSeriesService, WebSeriesService>();
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));

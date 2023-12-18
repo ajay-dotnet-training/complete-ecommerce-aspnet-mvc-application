@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.14" />
     <PackageReference Include="Microsoft.AspNetCore.Routing" Version="2.2.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.14" />
@@ -20,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Series\Models\" />
+    <Folder Include="Areas\" />
   </ItemGroup>
 
 </Project>

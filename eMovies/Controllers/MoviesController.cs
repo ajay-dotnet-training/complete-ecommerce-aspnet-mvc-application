@@ -11,7 +11,6 @@ using System.Data;
 namespace eMovies.Controllers
 {
     [Authorize(Roles = UserRoles.Admin)]
-    [Route("[controller]/[action]")]
     public class MoviesController : Controller
     {
         private readonly IMoviesService _service;
