@@ -63,19 +63,8 @@ app.MapControllerRoute(
     pattern: "{controller=Movies}/{action=Index}/{id?}");
 
 
-
-#pragma warning disable ASP0014 // Suggest using top level route registrations
-app.UseEndpoints(endpoints =>
- {
-     endpoints.MapControllerRoute(
-            name: "areas",
-            pattern: "Series/{controller=WebSeries}/{action=Index}/{id?}"
-          );
- });
-#pragma warning restore ASP0014 // Suggest using top level route registrations
-
 //DataBase Seed or Initialization
 ApplicationDbInitializer.Seed(app);
-ApplicationDbInitializer.SeedUsersAndRolesAsync(app);//.Wait();
+ApplicationDbInitializer.SeedUsersAndRolesAsync(app).Wait();
 
 app.Run();

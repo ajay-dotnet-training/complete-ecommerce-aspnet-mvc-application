@@ -197,7 +197,7 @@ namespace eTickets.Data
                             Price = 39.50,
                             ImageURL = "http://dotnethow.net/images/movies/movie-7.jpeg",
                             StratDate = DateTime.Now.AddDays(-10),
-                            EndDate = DateTime.Now.AddDays(-2),
+                            EndDate = DateTime.Now.AddDays(25),
                             CinemaId = 1,
                             ProducerId = 3,
                             MovieCategory = MovieCategory.Horror
