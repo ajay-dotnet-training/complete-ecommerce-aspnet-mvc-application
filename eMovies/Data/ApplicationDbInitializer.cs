@@ -1,7 +1,7 @@
 ﻿using eMovies.Data;
 using eMovies.Data.Enums;
+using eMovies.Data.Static;
 using eMovies.Models;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -184,8 +184,8 @@ namespace eTickets.Data
                             Description = "This is the Race movie description",
                             Price = 39.50,
                             ImageURL = "http://dotnethow.net/images/movies/movie-6.jpeg",
-                            StratDate = DateTime.Now.AddDays(-10),
-                            EndDate = DateTime.Now.AddDays(-5),
+                            StratDate = DateTime.Now,
+                            EndDate = DateTime.Now.AddDays(15),
                             CinemaId = 1,
                             ProducerId = 2,
                             MovieCategory = MovieCategory.Documentary
@@ -200,7 +200,7 @@ namespace eTickets.Data
                             EndDate = DateTime.Now.AddDays(-2),
                             CinemaId = 1,
                             ProducerId = 3,
-                            MovieCategory = MovieCategory.Drama
+                            MovieCategory = MovieCategory.Horror
                         },
                         new Movie()
                         {
@@ -208,7 +208,7 @@ namespace eTickets.Data
                             Description = "This is the Cold Soles movie description",
                             Price = 39.50,
                             ImageURL = "http://dotnethow.net/images/movies/movie-8.jpeg",
-                            StratDate = DateTime.Now.AddDays(3),
+                            StratDate = DateTime.Now.AddDays(2),
                             EndDate = DateTime.Now.AddDays(20),
                             CinemaId = 1,
                             ProducerId = 5,
@@ -259,6 +259,8 @@ namespace eTickets.Data
                             ActorId = 5,
                             MovieId = 3
                         },
+
+
                         new Actor_Movie()
                         {
                             ActorId = 2,
@@ -296,6 +298,8 @@ namespace eTickets.Data
                             ActorId = 5,
                             MovieId = 5
                         },
+
+
                         new Actor_Movie()
                         {
                             ActorId = 3,
@@ -317,5 +321,56 @@ namespace eTickets.Data
             }
 
         }
+
+        public static async Task SeedUsersAndRolesAsync(IApplicationBuilder applicationBuilder)
+        {
+            using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
+            {
+
+                //Roles
+                var roleManager = serviceScope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+                if (!await roleManager.RoleExistsAsync(UserRoles.Admin))
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
+                if (!await roleManager.RoleExistsAsync(UserRoles.User))
+                    await roleManager.CreateAsync(new IdentityRole(UserRoles.User));
+
+                //Users
+                var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+                string adminUserEmail = "admin@eMovies.com";
+
+                var adminUser = await userManager.FindByEmailAsync(adminUserEmail);
+                if (adminUser == null)
+                {
+                    var newAdminUser = new ApplicationUser()
+                    {
+                        FullName = "Admin User",
+                        UserName = "admin-user",
+                        Email = adminUserEmail,
+                        EmailConfirmed = true
+                    };
+                    await userManager.CreateAsync(newAdminUser, "Ajay@1234");
+                    await userManager.AddToRoleAsync(newAdminUser, UserRoles.Admin);
+                }
+
+
+                string appUserEmail = "user@eMovies.com";
+
+                var appUser = await userManager.FindByEmailAsync(appUserEmail);
+                if (appUser == null)
+                {
+                    var newAppUser = new ApplicationUser()
+                    {
+                        FullName = "Application User",
+                        UserName = "app-user",
+                        Email = appUserEmail,
+                        EmailConfirmed = true
+                    };
+                    await userManager.CreateAsync(newAppUser, "Ajay@1234");
+                    await userManager.AddToRoleAsync(newAppUser, UserRoles.User);
+                }
+            }
+        }
+
     }
 }

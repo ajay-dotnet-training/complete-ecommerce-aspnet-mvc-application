@@ -5,7 +5,7 @@ namespace eMovies.Models
     public class Cinema
     {
         [Key]
-        public int CinemaId { get; set; }
+        public int Id { get; set; }
 
 
         [Display(Name="Cinema Logo")]
@@ -18,6 +18,6 @@ namespace eMovies.Models
         public string Description { get; set; }
 
         // Relationships
-        public List<Movie> Movies { get; set; }
+        public List<Movie>? Movies { get; set; }
     }
 }

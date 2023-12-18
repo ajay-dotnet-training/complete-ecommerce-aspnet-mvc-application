@@ -5,7 +5,7 @@ namespace eMovies.Models
     public class Producer
     {
         [Key]
-        public int ProducerId { get; set; }
+        public int Id { get; set; }
         [Display(Name = "Profile Picture")]
         public string ProfilePictureUrl { get; set; }
 
@@ -16,6 +16,6 @@ namespace eMovies.Models
         public string Bio { get; set; }
 
         // Relationships
-        public List<Movie> Movies { get; set; }
+        public List<Movie>? Movies { get; set; }
     }
 }
