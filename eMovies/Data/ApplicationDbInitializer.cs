@@ -232,7 +232,6 @@ namespace eTickets.Data
                             ActorId = 3,
                             MovieId = 1
                         },
-
                          new Actor_Movie()
                         {
                             ActorId = 1,
@@ -259,8 +258,6 @@ namespace eTickets.Data
                             ActorId = 5,
                             MovieId = 3
                         },
-
-
                         new Actor_Movie()
                         {
                             ActorId = 2,
@@ -276,8 +273,6 @@ namespace eTickets.Data
                             ActorId = 4,
                             MovieId = 4
                         },
-
-
                         new Actor_Movie()
                         {
                             ActorId = 2,
@@ -298,8 +293,6 @@ namespace eTickets.Data
                             ActorId = 5,
                             MovieId = 5
                         },
-
-
                         new Actor_Movie()
                         {
                             ActorId = 3,
@@ -352,7 +345,6 @@ namespace eTickets.Data
                     await userManager.CreateAsync(newAdminUser, "Ajay@1234");
                     await userManager.AddToRoleAsync(newAdminUser, UserRoles.Admin);
                 }
-
 
                 string appUserEmail = "user@eMovies.com";
 

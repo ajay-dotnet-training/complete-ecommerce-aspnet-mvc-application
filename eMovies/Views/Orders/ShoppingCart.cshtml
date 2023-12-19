@@ -57,9 +57,9 @@
 
         <div class="text-right">
             <div class="btn-group">
-                @*<a class="btn btn-outline-primary" asp-action="CompleteOrder">
+                <a class="btn btn-outline-primary" asp-action="CompleteOrder">
                 Complete order
-                </a>*@
+                </a>
                 <div id="paypal-btn"></div>
                 <span style="padding:5px"></span>
                 <a class="btn btn-outline-success" asp-controller="Movies" asp-action="Index">
@@ -87,7 +87,7 @@
             },
 
             //Customize button
-            locale: 'en_US',
+            locale: 'en_IN',
             style: {
                 size: 'small',
                 color: 'gold',
@@ -117,4 +117,5 @@
 
         }, '#paypal-btn')
     </script>
+
 }
